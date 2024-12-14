@@ -1,138 +1,19 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+trigger:
+  - main
 
-parameters:
-  - name: buildSteps
-    type: stepList
-    default:
-      - script: echo Running default buildSteps
+pool:
+  name: 'TestAgent'
 
-stages:
-- stage: get_commit_branch
-  pool:
-    name: 'TestAgent'
-  displayName: Get Commit Branch Info
-  jobs:
-  - job: Do
-    steps:
-    - template: common-pipeline-1.yml
-    - ${{ each step in parameters.buildSteps }}:
-        - ${{ each pair in step }}:
-            ${{ pair.key }}: ${{ pair.value }}
-# - stage: validate_entry_criteria
-#   displayName: Validate Entry Criteria
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Validate Entry Criteria
-#       displayName: Run a one-line script
-# - stage: execute_build
-#   displayName: Execute Build
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Execute Build
-#       displayName: Run a one-line script
-# - stage: perform_unit_tests
-#   displayName: Perform Unit Tests
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Perform Unit Tests
-#       displayName: Run a one-line script
-# - stage: analyze_code
-#   displayName: Analyze Code
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Analyze Code
-#       displayName: Run a one-line script
-# - stage: package_artifact
-#   displayName: Package Artifact
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Package Artifact
-#       displayName: Run a one-line script
-# - stage: publish_artifact
-#   displayName: Publish Artifact
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Publish Artifact
-#       displayName: Run a one-line script
-- stage: provision_test_environment
-  condition: eq(variables['Build.SourceBranchName'], 'develop')
-  displayName: Provision Test Environment
-  jobs:
-  - job: Do
-    steps:
-    - script: echo Provision Test Environment
-      displayName: Run a one-line script
-# - stage: deploy_artifact_to_test
-#   displayName: Deploy Artifact To Test
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Deploy Artifact To Test
-#       displayName: Run a one-line script
-# - stage: perform_test
-#   displayName: Perform Test
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Perform Test
-#       displayName: Run a one-line script
-# - stage: validate_infrastructure_compliance
-#   displayName: Validate Infrastructure Compliance
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Validate Infrastructure Compliance
-#       displayName: Run a one-line script
-# - stage: validate_exit_criteria
-#   displayName: Validate Exit Criteria
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Validate Exit Criteria
-#       displayName: Run a one-line script
-# - stage: perform_dual_control
-#   displayName: Perform Dual Control
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Perform Dual Control
-#       displayName: Run a one-line script
-# - stage: provision_production_environment
-#   displayName: Provision Production Environment
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Provision Production Environment
-#       displayName: Run a one-line script
-# - stage: deploy_artifact_to_production
-#   displayName: Deploy Artifact to Production
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Deploy Artifact to Production
-#       displayName: Run a one-line script
-# - stage: notify_actors
-#   displayName: Notify Actors
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Notify Actors
-#       displayName: Run a one-line script
+resources:
+  repositories:
+    - repository: templates
+      endpoint: quangpham1019 (1)
+      type: github
+      name: quangpham1019/pipeline-repo
 
-# steps:
-# - script: echo Hello, world!
-#   displayName: Run a one-line script
-
-# - script: |
-#     echo Add other tasks to build, test, and deploy your project.
-#     echo See https://aka.ms/yaml
-#   displayName: Run a multi-line script
+extends:
+  template: general-pipeline-template.yml@templates
+  parameters:
+    ciSteps:
+      - script: echo Running ci buildSteps from $(Build.SourceBranchName)
+      - script: echo Finishing ci buildSteps from $(Build.SourceBranchName)

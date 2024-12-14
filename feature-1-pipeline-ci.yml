@@ -15,5 +15,5 @@ extends:
   template: general-pipeline-template.yml@templates
   parameters:
     ciSteps:
-      - script: echo Running feature-1-pipeline-ci buildSteps in main
-      - script: echo Finishing feature-1-pipeline-ci buildSteps in main
+      - script: echo Running feature-1-pipeline-ci buildSteps from $(Build.SourceBranchName)
+      - script: echo Finishing feature-1-pipeline-ci buildSteps from $(Build.SourceBranchName)
