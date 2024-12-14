@@ -62,7 +62,7 @@ stages:
 #     - script: echo Publish Artifact
 #       displayName: Run a one-line script
 - stage: provision_test_environment
-  condition: eq($(Build.SourceBranchName), develop)
+  condition: $[eq(variables['Build.SourceBranchName'], 'develop')]
   displayName: Provision Test Environment
   jobs:
   - job: Do
