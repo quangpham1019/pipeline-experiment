@@ -13,91 +13,91 @@ variables:
   agentPool: 'TestAgent'
 
 stages:
-- stage: Validate Entry Criteria
+- stage: 'Validate Entry Criteria'
   jobs:
   - job: Do
     steps:
     - script: echo Validate Entry Criteria
       displayName: Run a one-line script
-- stage: Execute Build
+- stage: 'Execute Build'
   jobs:
   - job: Do
     steps:
     - script: echo Execute Build
       displayName: Run a one-line script
-- stage: Perform Unit Tests
+- stage: 'Perform Unit Tests'
   jobs:
   - job: Do
     steps:
     - script: echo Perform Unit Tests
       displayName: Run a one-line script
-- stage: Analyze Code
+- stage: 'Analyze Code'
   jobs:
   - job: Do
     steps:
     - script: echo Analyze Code
       displayName: Run a one-line script
-- stage: Package Artifact
+- stage: 'Package Artifact'
   jobs:
   - job: Do
     steps:
     - script: echo Package Artifact
       displayName: Run a one-line script
-- stage: Publish Artifact
+- stage: 'Publish Artifact'
   jobs:
   - job: Do
     steps:
     - script: echo Publish Artifact
       displayName: Run a one-line script
-- stage: Provision Test Environment
+- stage: 'Provision Test Environment'
   jobs:
   - job: Do
     steps:
     - script: echo Provision Test Environment
       displayName: Run a one-line script
-- stage: Deploy Artifact To Test
+- stage: 'Deploy Artifact To Test'
   jobs:
   - job: Do
     steps:
     - script: echo Deploy Artifact To Test
       displayName: Run a one-line script
-- stage: Perform Test
+- stage: 'Perform Test'
   jobs:
   - job: Do
     steps:
     - script: echo Perform Test
       displayName: Run a one-line script
-- stage: Validate Infrastructure Compliance
+- stage: 'Validate Infrastructure Compliance'
   jobs:
   - job: Do
     steps:
     - script: echo Validate Infrastructure Compliance
       displayName: Run a one-line script
-- stage: Validate Exit Criteria
+- stage: 'Validate Exit Criteria'
   jobs:
   - job: Do
     steps:
     - script: echo Validate Exit Criteria
       displayName: Run a one-line script
-- stage: Perform Dual Control
+- stage: 'Perform Dual Control'
   jobs:
   - job: Do
     steps:
     - script: echo Perform Dual Control
       displayName: Run a one-line script
-- stage: Provision Production Environment
+- stage: 'Provision Production Environment'
   jobs:
   - job: Do
     steps:
     - script: echo Provision Production Environment
       displayName: Run a one-line script
-- stage: Deploy Artifact to Production
+- stage: 'Deploy Artifact to Production'
   jobs:
   - job: Do
     steps:
     - script: echo Deploy Artifact to Production
       displayName: Run a one-line script
-- stage: Notify Actors
+- stage: 'Notify Actors'
   jobs:
   - job: Do
     steps:
