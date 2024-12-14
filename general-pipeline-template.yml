@@ -1,0 +1,4 @@
+parameters:
+  - name: buildSteps
+    type: stepList
+    default: []
