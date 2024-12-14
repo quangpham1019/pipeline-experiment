@@ -6,17 +6,17 @@
 trigger:
 - release
 
-parameters:
-  - name: buildSteps
-    type: stepList
-    default:
-      - script: echo Running default buildSteps
-
 pool:
   name: $(agentPool)
 
 variables:
   agentPool: 'TestAgent'
+
+parameters:
+  - name: buildSteps
+    type: stepList
+    default:
+      - script: echo Running default buildSteps
 
 stages:
 - stage: get_commit_branch
