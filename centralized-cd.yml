@@ -1,0 +1,22 @@
+trigger:
+  - release
+
+pool:
+  name: 'TestAgent'
+
+resources:
+  repositories:
+    - repository: templates
+      endpoint: quangpham1019 (1)
+      type: github
+      name: quangpham1019/pipeline-repo
+
+extends:
+  template: general-pipeline-template.yml@templates
+  parameters:
+    ciSteps:
+      - script: echo Running release ciSteps from $(Build.SourceBranchName)
+      - script: echo Finishing release ciSteps from $(Build.SourceBranchName)
+    cdSteps:
+      - script: echo Running release cdSteps from $(Build.SourceBranchName)
+      - script: echo Finishing release cdSteps from $(Build.SourceBranchName)
