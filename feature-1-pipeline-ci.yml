@@ -4,12 +4,6 @@ trigger:
 pool:
   name: 'TestAgent'
 
-resources:
-  repositories:
-    - repository: template
-      endpoint: quangpham1019 (1)
-      type: github
-      name: quangpham1019/pipeline-repo
-
 steps:
-- template: feature-1-ci-template.yml@template
+  - script: echo Running and Finishing
+  - script: echo pipeline in pipeline-repo will be triggered
