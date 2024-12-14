@@ -18,7 +18,7 @@ stages:
   jobs:
   - job: Do
     steps:
-    - script: echo $(Build.SourceBranchName)
+    - template: common-pipeline-1.yml
 # - stage: validate_entry_criteria
 #   displayName: Validate Entry Criteria
 #   jobs:
