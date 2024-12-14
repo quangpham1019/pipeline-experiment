@@ -4,8 +4,15 @@ trigger:
 pool:
   name: 'TestAgent'
 
+resources:
+  repositories:
+    - repository: templates
+      endpoint: quangpham1019 (1)
+      type: github
+      name: quangpham1019/pipeline-repo
+
 extends:
-  template: general-pipeline-template.yml
+  template: general-pipeline-template.yml@templates
   parameters:
     ciSteps:
       - script: echo Running feature-1-pipeline-ci buildSteps in main
