@@ -1,9 +1,15 @@
 trigger:
   - feature-1
 
-extends:
-  template: azure-pipelines.yml
-  parameters:
-    buildSteps:
-      - script: echo Running feature-1 buildSteps
-      - script: echo Finishing feature-1 buildSteps
+pool:
+  name: 'TestAgent'
+
+resources:
+  repositories:
+    - repository: template
+      endpoint: quangpham1019 (1)
+      type: github
+      name: quangpham1019/pipeline-repo
+
+steps:
+- template: feature-1-ci-template.yml@template
