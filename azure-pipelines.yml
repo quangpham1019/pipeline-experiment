@@ -5,7 +5,6 @@
 
 trigger:
   - release
-
 parameters:
   - name: buildSteps
     type: stepList
