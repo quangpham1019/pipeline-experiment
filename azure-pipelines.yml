@@ -3,14 +3,14 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- release
-
-pool:
-  name: $(agentPool)
-
-variables:
-  agentPool: 'TestAgent'
+#trigger:
+#- release
+#
+#pool:
+#  name: $(agentPool)
+#
+#variables:
+#  agentPool: 'TestAgent'
 
 parameters:
   - name: buildSteps
@@ -20,6 +20,8 @@ parameters:
 
 stages:
 - stage: get_commit_branch
+  pool:
+    name: 'TestAgent'
   displayName: Get Commit Branch Info
   jobs:
   - job: Do
@@ -28,7 +30,7 @@ stages:
     - ${{ each step in parameters.buildSteps }}:
         - ${{ each pair in step }}:
             ${{ pair.key }}: ${{ pair.value }}
-  # - stage: validate_entry_criteria
+# - stage: validate_entry_criteria
 #   displayName: Validate Entry Criteria
 #   jobs:
 #   - job: Do
