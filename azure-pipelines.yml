@@ -61,13 +61,14 @@ stages:
 #     steps:
 #     - script: echo Publish Artifact
 #       displayName: Run a one-line script
-# - stage: provision_test_environment
-#   displayName: Provision Test Environment
-#   jobs:
-#   - job: Do
-#     steps:
-#     - script: echo Provision Test Environment
-#       displayName: Run a one-line script
+- stage: provision_test_environment
+  condition: eq($(Build.SourceBranchName), develop)
+  displayName: Provision Test Environment
+  jobs:
+  - job: Do
+    steps:
+    - script: echo Provision Test Environment
+      displayName: Run a one-line script
 # - stage: deploy_artifact_to_test
 #   displayName: Deploy Artifact To Test
 #   jobs:
