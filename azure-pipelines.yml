@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+- '*'
 
 pool:
   name: $(agentPool)
@@ -12,11 +12,72 @@ pool:
 variables:
   agentPool: 'TestAgent'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+- stage: 'Validate Entry Criteria'
+  steps:
+  - script: echo 'Validate Entry Criteria'
+    displayName: 'Run a one-line script'
+- stage: 'Execute Build'
+  steps:
+  - script: echo 'Execute Build'
+    displayName: 'Run a one-line script'
+- stage: 'Perform Unit Tests'
+  steps:
+  - script: echo 'Perform Unit Tests'
+    displayName: 'Run a one-line script'
+- stage: 'Analyze Code'
+  steps:
+  - script: echo 'Analyze Code'
+    displayName: 'Run a one-line script'
+- stage: 'Package Artifact'
+  steps:
+  - script: echo 'Package Artifact'
+    displayName: 'Run a one-line script'
+- stage: 'Publish Artifact'
+  steps:
+  - script: echo 'Publish Artifact'
+    displayName: 'Run a one-line script'
+- stage: 'Provision Test Environment'
+  steps:
+  - script: echo 'Provision Test Environment'
+    displayName: 'Run a one-line script'
+- stage: 'Deploy Artifact To Test'
+  steps:
+  - script: echo 'Deploy Artifact To Test'
+    displayName: 'Run a one-line script'
+- stage: 'Perform Test'
+  steps:
+  - script: echo 'Perform Test'
+    displayName: 'Run a one-line script'
+- stage: 'Validate Infrastructure Compliance'
+  steps:
+  - script: echo 'Validate Infrastructure Compliance'
+    displayName: 'Run a one-line script'
+- stage: 'Validate Exit Criteria'
+  steps:
+  - script: echo 'Validate Exit Criteria'
+    displayName: 'Run a one-line script'
+- stage: 'Perform Dual Control'
+  steps:
+  - script: echo 'Perform Dual Control'
+    displayName: 'Run a one-line script'
+- stage: 'Provision Production Environment'
+  steps:
+  - script: echo 'Provision Production Environment'
+    displayName: 'Run a one-line script'
+- stage: 'Deploy Artifact to Production'
+  steps:
+  - script: echo 'Deploy Artifact to Production'
+    displayName: 'Run a one-line script'
+- stage: 'Notify Actors'
+  steps:
+  - script: echo 'Notify Actors'
+    displayName: 'Run a one-line script'
+# steps:
+# - script: echo Hello, world!
+#   displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+# - script: |
+#     echo Add other tasks to build, test, and deploy your project.
+#     echo See https://aka.ms/yaml
+#   displayName: 'Run a multi-line script'
