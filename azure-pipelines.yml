@@ -6,6 +6,12 @@
 trigger:
 - '*'
 
+parameters:
+  - name: buildSteps
+    type: stepList
+    default:
+      - script: echo Running default buildSteps
+
 pool:
   name: $(agentPool)
 
@@ -18,8 +24,11 @@ stages:
   jobs:
   - job: Do
     steps:
-    - script: echo $(Build.SourceBranchName)
-# - stage: validate_entry_criteria
+    - template: common-pipeline-1.yml
+    - ${{ each step in parameters.buildSteps }}:
+        - ${{ each pair in step }}:
+            ${{ pair.key }}: ${{ pair.value }}
+  # - stage: validate_entry_criteria
 #   displayName: Validate Entry Criteria
 #   jobs:
 #   - job: Do
