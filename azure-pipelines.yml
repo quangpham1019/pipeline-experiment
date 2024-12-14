@@ -18,15 +18,14 @@ stages:
   jobs:
   - job: Do
     steps:
-    - script: echo $(Build.SourceBranch)
-- stage: validate_entry_criteria
-  displayName: Validate Entry Criteria
-  jobs:
-  - job: Do
-    steps:
-    - script: echo Validate Entry Criteria
-      displayName: Run a one-line script
-      
+    - script: echo $(Build.SourceBranchName)
+# - stage: validate_entry_criteria
+#   displayName: Validate Entry Criteria
+#   jobs:
+#   - job: Do
+#     steps:
+#     - script: echo Validate Entry Criteria
+#       displayName: Run a one-line script
 # - stage: execute_build
 #   displayName: Execute Build
 #   jobs:
