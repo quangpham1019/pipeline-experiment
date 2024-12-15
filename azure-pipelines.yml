@@ -1,5 +1,5 @@
 trigger:
-  - '*'
+  - main
 
 pool:
   name: 'TestAgent'
@@ -16,6 +16,6 @@ extends:
   parameters:
     ciSteps:
       - script: echo Testing main branch
-        condition: eq($(Build.SourceBranchName), true)
+        condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
       - script: echo Running ci buildSteps from $(Build.SourceBranchName)
       - script: echo Finishing ci buildSteps from $(Build.SourceBranchName)
