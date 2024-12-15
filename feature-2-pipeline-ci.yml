@@ -12,8 +12,8 @@ resources:
       name: quangpham1019/pipeline-repo
 
 extends:
-  template: general-pipeline-template.yml@templates
+  template: template2.yml
   parameters:
     ciSteps:
-      - script: echo Running feature-1-pipeline-ci buildSteps in main
-      - script: echo Finishing feature-1-pipeline-ci buildSteps in main
+      - script: echo Running feature-2-pipeline-ci buildSteps
+      - script: echo Finishing feature-2-pipeline-ci buildSteps

@@ -1,0 +1,7 @@
+
+extends:
+  template: template.yml
+  parameters:
+    ciSteps:
+      - script: echo Running feature-2-pipeline-ci buildSteps
+      - script: echo Finishing feature-2-pipeline-ci buildSteps
