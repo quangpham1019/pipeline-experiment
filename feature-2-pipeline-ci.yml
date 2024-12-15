@@ -1,5 +1,5 @@
 trigger:
-  - feature-1
+  - feature-2
 
 pool:
   name: 'TestAgent'
